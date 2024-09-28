@@ -76,7 +76,7 @@ const AboutCard: React.FC = () => {
 
 const App = () => {
   return (
-    <div className="min-h-screen flex flex-col gap-4 justify-center items-center bg-gray-100">
+    <div className="min-h-screen flex  gap-4 justify-center items-center bg-gray-100">
       <div
         id="page"
         className="flex flex-col gap-4 items-center p-4 bg"
@@ -119,52 +119,91 @@ const App = () => {
           更多 https://barrysong4real.cc
         </div>
       </div>
-      <div>
-        <button
-          onClick={() => {
-            toPng(document.getElementById("about-card")!, {
-              pixelRatio: 2,
-              quality: 1,
-            }).then((dataUrl) => {
-              const link = document.createElement("a");
-              link.download = "business-card.png";
-              link.href = dataUrl;
-              link.click();
-            });
-          }}
+      <div className="flex flex-col gap-4">
+        <div
+          id="og"
+          className="relative w-[446px] h-[234px] bg-[url('/bg.png')] bg-no-repeat bg-cover bg-center bg-white text-[#222020]  shadow-lg  overflow-hidden    flex flex-col p-4"
         >
-          下载aboutme
-        </button>
-        <button
-          onClick={() => {
-            toPng(document.getElementById("stack-card")!, {
-              pixelRatio: 2,
-              quality: 1,
-            }).then((dataUrl) => {
-              const link = document.createElement("a");
-              link.download = "business-card.png";
-              link.href = dataUrl;
-              link.click();
-            });
-          }}
-        >
-          下载技术栈
-        </button>
-        <button
-          onClick={() => {
-            toPng(document.getElementById("page")!, {
-              pixelRatio: 2,
-              quality: 1,
-            }).then((dataUrl) => {
-              const link = document.createElement("a");
-              link.download = "business-card.png";
-              link.href = dataUrl;
-              link.click();
-            });
-          }}
-        >
-          下载图片
-        </button>
+          <div className="flex items-start justify-end gap-4">
+            <div className="text-right">
+              <div className="text-white font-bold">Barry Song</div>
+              <div className="text-sm text-white">全栈工程师</div>
+            </div>
+            <img
+              src="/self.jpeg"
+              alt=""
+              className="w-16 h-16 object-cover rounded-lg"
+            />
+          </div>
+        </div>
+        <div className="flex gap-4">
+          <button
+            onClick={() => {
+              toPng(document.getElementById("about-card")!, {
+                pixelRatio: 2,
+                quality: 1,
+              }).then((dataUrl) => {
+                const link = document.createElement("a");
+                link.download = "business-card.png";
+                link.href = dataUrl;
+                link.click();
+              });
+            }}
+            className="bg-blue-500 text-white px-4 py-2 rounded-md"
+          >
+            下载关于我
+          </button>
+          <button
+            onClick={() => {
+              toPng(document.getElementById("stack-card")!, {
+                pixelRatio: 2,
+                quality: 1,
+              }).then((dataUrl) => {
+                const link = document.createElement("a");
+                link.download = "business-card.png";
+                link.href = dataUrl;
+                link.click();
+              });
+            }}
+            className="bg-blue-500 text-white px-4 py-2 rounded-md"
+          >
+            下载技术栈
+          </button>
+          <button
+            onClick={() => {
+              toPng(document.getElementById("page")!, {
+                pixelRatio: 2,
+                quality: 1,
+              }).then((dataUrl) => {
+                const link = document.createElement("a");
+                link.download = "business-card.png";
+                link.href = dataUrl;
+                link.click();
+              });
+            }}
+            className="bg-blue-500 text-white px-4 py-2 rounded-md"
+          >
+            下载名片
+          </button>
+          <button
+            onClick={() => {
+              toPng(document.getElementById("og")!, {
+                pixelRatio: 2,
+                quality: 1,
+              }).then((dataUrl) => {
+                console.log(dataUrl);
+
+                const link = document.createElement("a");
+                link.download = "business-card.png";
+                link.href = dataUrl;
+                link.click();
+              });
+            }}
+            className="bg-blue-500 text-white px-4 py-2 rounded-md"
+          >
+            下载og
+          </button>
+        </div>
       </div>
     </div>
   );
